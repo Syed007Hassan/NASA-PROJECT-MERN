@@ -1,0 +1,28 @@
+{
+  "name": "nasa-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install": "npm run install-server && npm run install-client",
+    "server": "cd server && npm start",
+    "client": "cd client & npm run start",
+    "watch": "npm run server && npm run client",
+    "deploy": "npm run build --prefix client && npm start --prefix server",
+    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm test --prefix server && npm test --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syed007Hassan/NASA-PROJECT-MERN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syed007Hassan/NASA-PROJECT-MERN/issues"
+  },
+  "homepage": "https://github.com/Syed007Hassan/NASA-PROJECT-MERN#readme"
+}
