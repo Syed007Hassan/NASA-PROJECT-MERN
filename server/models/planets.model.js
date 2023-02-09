@@ -38,7 +38,11 @@ function loadPlanetsData() {
   });
 }
 
+const getAllPlanets = () => {
+  return habitablePlanets;
+};
+
 module.exports = {
   loadPlanetsData: loadPlanetsData,
-  planets: habitablePlanets,
+  getAllPlanets: getAllPlanets,
 };

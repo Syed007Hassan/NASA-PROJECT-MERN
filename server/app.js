@@ -4,6 +4,7 @@ const path = require("path");
 const morgan = require("morgan");
 
 const planetsRouter = require("./routes/planets.router");
+const launchesRouter = require("./routes/launches.router");
 
 const app = express();
 app.use(express.json());
@@ -17,9 +18,11 @@ app.use(
 app.use(morgan("short"));
 
 app.use(planetsRouter);
+app.use(launchesRouter);
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", function (req, res) {
+// This is a catch-all route handler that sends back the React app's index.html file.
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
