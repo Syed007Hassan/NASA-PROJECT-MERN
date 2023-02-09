@@ -20,17 +20,15 @@ const getAllLaunches = () => {
 
 const addNewLaunch = (launch) => {
   latestFlightNumber++;
-  launch.set(
-    launch.flightNumber,
-    Object.assign(launch, {
-      flightNumber: latestFlightNumber,
-      customers: ["Zero To Mastery", "NASA"],
-      upcoming: true,
-      success: true,
-    })
-  );
+  Object.assign(launch, {
+    flightNumber: latestFlightNumber,
+    customers: ["Zero To Mastery", "NASA"],
+    upcoming: true,
+    success: true,
+  });
 };
 
 module.exports = {
   getAllLaunches,
+  addNewLaunch,
 };
