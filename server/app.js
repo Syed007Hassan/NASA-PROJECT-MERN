@@ -2,10 +2,12 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const morgan = require("morgan");
+const dotenv = require("dotenv");
 
 const planetsRouter = require("./routes/planets.router");
 const launchesRouter = require("./routes/launches.router");
 
+dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(
