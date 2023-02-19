@@ -28,5 +28,13 @@ const connectDb = async () => {
   console.log("MongoDB Server is up and running");
 };
 
+const mongooseDisconnect = async () => {
+  await mongoose.disconnect();
+};
+
 startServer();
-module.exports = app;
+module.exports = {
+  app,
+  connectDb,
+  mongooseDisconnect,
+};

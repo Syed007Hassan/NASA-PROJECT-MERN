@@ -11,7 +11,7 @@ const HttpGetAllLaunches = async (req, res) => {
 
 const HttpAddNewLaunch = async (req, res) => {
   const launch = req.body;
-  console.log("the launch is: ", launch);
+
   if (
     !launch.mission ||
     !launch.rocket ||
