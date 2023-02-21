@@ -16,7 +16,7 @@ afterAll(async () => {
 
 describe("Test Get /launches", () => {
   test("It should respond with 200 success", async () => {
-    const response = await request(app).get("/launches");
+    const response = await request(app).get("/v1/launches");
     expect(response.statusCode).toBe(200);
   });
 });
@@ -36,7 +36,7 @@ describe("Test POST /launch", () => {
   };
   test("It should response with 201 created", async () => {
     const response = await request(app)
-      .post("/launches")
+      .post("/v1/launches")
       .send(completeLaunchData)
       .expect("Content-Type", /json/)
       .expect(201);
@@ -49,7 +49,7 @@ describe("Test POST /launch", () => {
 
   test("It should catch missing required properties", async () => {
     const response = await request(app)
-      .post("/launches")
+      .post("/v1/launches")
       .send({
         mission: "USS Enterprise",
         rocket: "NCC-1701-D",
@@ -65,7 +65,7 @@ describe("Test POST /launch", () => {
 
   test("It should catch invalid dates", async () => {
     const response = await request(app)
-      .post("/launches")
+      .post("/v1/launches")
       .send({
         mission: "USS Enterprise",
         rocket: "NCC-1701-D",
@@ -83,7 +83,7 @@ describe("Test POST /launch", () => {
 
 describe("Test DELETE /launches", () => {
   test("It should respond with 200 success", async () => {
-    const response = await request(app).delete("/launches/100");
+    const response = await request(app).delete("/v1/launches/100");
     expect(response.statusCode).toBe(200);
   });
 });
