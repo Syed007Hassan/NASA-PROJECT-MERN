@@ -7,12 +7,14 @@ dotenv.config();
 mongoose.set("strictQuery", false);
 
 const { loadPlanetsData } = require("./models/planets.model");
+const { loadLaunchData } = require("./models/launches.model");
 
 const port = 5000 || process.env.PORT;
 
 async function startServer() {
   await connectDb();
   await loadPlanetsData();
+  await loadLaunchData();
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
