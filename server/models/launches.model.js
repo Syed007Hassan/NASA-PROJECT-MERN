@@ -66,7 +66,7 @@ saveLaunch(launch);
 const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 
 // to populate the database with launch data
-const loadLaunchesData = async () => {
+const loadLaunchData = async () => {
   console.log("Downloading launch data...");
   const response = await axios.post(SPACEX_API_URL, {
     query: {},
@@ -88,6 +88,28 @@ const loadLaunchesData = async () => {
       ],
     },
   });
+  const launchDocs = response.data.docs;
+  for (const launchDoc of launchDocs) {
+    const payloads = launchDoc["payloads"];
+    // payloads.flatMap() is a new method in ES2020 that returns a new array
+    // with the results of calling a provided function on every element in the calling array
+    const customers = payloads.flatMap((payload) => {
+      return payload["customers"];
+    });
+
+    const launch = {
+      flightNumber: launchDoc["flight_number"],
+      mission: launchDoc["name"],
+      rocket: launchDoc["rocket"]["name"],
+      launchDate: launchDoc["date_local"],
+      upcoming: launchDoc["upcoming"],
+      success: launchDoc["success"],
+      customers,
+    };
+
+    console.log(`${launch.flightNumber} ${launch.mission}`);
+    // await saveLaunch(launch);
+  }
 };
 
 // to schedule a new launch
@@ -121,7 +143,7 @@ const abortLaunchById = async (launchId) => {
 };
 
 module.exports = {
-  loadLaunchesData,
+  loadLaunchData,
   getAllLaunches,
   scheduleNewLaunch,
   existsLaunchWithId,
