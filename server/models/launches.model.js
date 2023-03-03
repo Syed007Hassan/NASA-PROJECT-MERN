@@ -113,7 +113,7 @@ const populateLaunches = async () => {
     };
 
     console.log(`${launch.flightNumber} ${launch.mission}`);
-    // await saveLaunch(launch);
+    await saveLaunch(launch);
   }
 };
 
