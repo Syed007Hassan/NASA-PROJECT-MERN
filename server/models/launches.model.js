@@ -7,16 +7,18 @@ const axios = require("axios");
 let DEFAULT_FLIGHT_NUMBER = 100;
 
 // commented name shows the name of the property in the SPACEX API
-const launch = {
-  flightNumber: 100, // flight_number
-  mission: "Keppler Observation X", // mission_name
-  rocket: "Explorer IS1", // rocket.name
-  launchDate: new Date("December 27, 2030"), // date_local
-  target: "Kepler-442 b", // not available in SPACEX API
-  customer: ["ZTM", "NASA"], // payloads.customers  for each payload
-  upcoming: true, // upcoming
-  success: true, // success
-};
+// const launch = {
+//   flightNumber: 100, // flight_number
+//   mission: "Keppler Observation X", // mission_name
+//   rocket: "Explorer IS1", // rocket.name
+//   launchDate: new Date("December 27, 2030"), // date_local
+//   target: "Kepler-442 b", // not available in SPACEX API
+//   customer: ["ZTM", "NASA"], // payloads.customers  for each payload
+//   upcoming: true, // upcoming
+//   success: true, // success
+// };
+
+// saveLaunch(launch);
 
 const findLaunch = async (filter) => {
   return await launchesDatabase.findOne(filter);
@@ -44,6 +46,7 @@ const getLatestFlightNumber = async () => {
 const getAllLaunches = async (skip, limit) => {
   return await launchesDatabase
     .find({}, { _id: 0, __v: 0 })
+    .sort({ flightNumber: 1 })
     .skip(skip)
     .limit(limit);
 };
@@ -60,8 +63,6 @@ const saveLaunch = async (launch) => {
     }
   );
 };
-
-saveLaunch(launch);
 
 const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 
