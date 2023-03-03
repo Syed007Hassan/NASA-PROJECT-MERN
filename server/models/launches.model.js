@@ -41,8 +41,11 @@ const getLatestFlightNumber = async () => {
 };
 
 // to get all launches from the database
-const getAllLaunches = async () => {
-  return await launchesDatabase.find({}, { _id: 0, __v: 0 });
+const getAllLaunches = async (skip, limit) => {
+  return await launchesDatabase
+    .find({}, { _id: 0, __v: 0 })
+    .skip(skip)
+    .limit(limit);
 };
 
 // to save a launch to the database
