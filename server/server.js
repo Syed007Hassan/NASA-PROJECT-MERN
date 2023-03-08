@@ -22,15 +22,10 @@ async function startServer() {
 }
 //creating a db connection
 const connectDb = async () => {
-  await mongoose.connect(
-    "mongodb+srv://admin-hassan:" +
-      process.env.MONGOATLASPASWORD +
-      "@cluster0.yipmq.mongodb.net/NasaProject",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  );
+  await mongoose.connect(process.env.MONGOURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
   console.log("MongoDB Server is up and running");
 };
 
