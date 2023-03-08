@@ -10,7 +10,7 @@
     "cluster": "pm2 start server.js -i max"
   },
   "keywords": [],
-  "author": "",
+  "author": "",q
   "license": "ISC",
   "jest": {
     "testEnvironment": "node"
