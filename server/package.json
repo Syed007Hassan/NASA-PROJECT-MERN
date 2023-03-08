@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest --detectOpenHandles",
-    "watch": "jest --watch",
+    "test": "jest --detectOpenHandles --forceExit",
     "start": "node server.js",
     "cluster": "pm2 start server.js -i max"
   },
