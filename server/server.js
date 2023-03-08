@@ -29,8 +29,6 @@ const connectDb = async () => {
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
     }
   );
   console.log("MongoDB Server is up and running");
