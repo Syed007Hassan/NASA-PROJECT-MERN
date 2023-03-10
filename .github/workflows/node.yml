@@ -11,8 +11,8 @@ jobs:
       MONGOURL: mongodb://localhost/NasaProject
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
-        mongodb-version: ["4.4", "5.0"]
+        node-version: [18.x]
+        mongodb-version: ["4.4"]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
