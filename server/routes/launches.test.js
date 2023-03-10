@@ -29,6 +29,7 @@ describe("Test POST /launch", () => {
     rocket: "NCC-1701-D",
     target: "Kepler-442 b",
     launchDate: "January 4, 2028",
+    flightNumber: 100,
   };
 
   const launchDataWithoutDate = {
