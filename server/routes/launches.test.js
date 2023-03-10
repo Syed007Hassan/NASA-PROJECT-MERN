@@ -2,11 +2,13 @@
 const request = require("supertest");
 const app = require("../app");
 const { connectDb, mongooseDisconnect } = require("../server");
+const { loadPlanetsData } = require("../models/planets.model");
 jest.setTimeout(30000);
 
 // Connect to a new in-memory database before running any tests.
 beforeAll(async () => {
   await connectDb();
+  await loadPlanetsData();
 });
 
 // Clear all test data after every test and removing db connections
