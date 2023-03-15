@@ -9,10 +9,11 @@ WORKDIR /app
 COPY package*.json ./
 
 COPY client/package*.json client/
-RUN npm install-client --only=production
+RUN npm run install-client --omit=dev
 
 COPY server/package*.json server/
-RUN npm install-server --only=production
+RUN npm run install-server --omit=dev
+
 
 COPY client/ client/
 RUN npm run build --prefix client
@@ -22,10 +23,11 @@ COPY server/ server/
 # Bundle app source
 USER node
 
-CMD ["npm", "start", "--prefix", "server"]
+CMD ["npm", "run", "start", "--prefix", "server"]
+
 
 EXPOSE 5000
 
-
+# Dockerfile (build) -> Docker Image (run) -> Docker Container
 
 
