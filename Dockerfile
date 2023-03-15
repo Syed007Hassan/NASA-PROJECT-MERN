@@ -4,13 +4,20 @@ FROM node:lts-alpine
 
 WORKDIR /app
 
-# Install app dependencies
+# Process can be cached by docker if package.json is not changed
+# so we copy it first and install dependencies
+COPY package*.json ./
 
-COPY . .
+COPY client/package*.json client/
+RUN npm install-client --only=production
 
-RUN npm install --only=production
+COPY server/package*.json server/
+RUN npm install-server --only=production
 
+COPY client/ client/
 RUN npm run build --prefix client
+
+COPY server/ server/
 
 # Bundle app source
 USER node
