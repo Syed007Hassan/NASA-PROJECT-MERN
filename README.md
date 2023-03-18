@@ -1,5 +1,5 @@
 # NASA-PROJECT-MERN
-Using [Arwes](https://arwes.dev/) Futuristic Sci-Fi UI, implemented REST Api. Backend reads the Nasa ExoPlanets csv file to launch and abort rockets. 
+Used [Arwes](https://arwes.dev/) Futuristic Sci-Fi UI and implemented REST APIs. NASA [Exoplanets](https://exoplanetarchive.ipac.caltech.edu/)'s data is used to find out the habitable planets and [SPACEX-API](https://github.com/r-spacex/SpaceX-API) is used for populating launches data.  
 
 ## Architecture Diagram
 ![nasa](https://github.com/Syed007Hassan/NASA-PROJECT-MERN/blob/main/Project%20Architectural%20Diagram.png)
