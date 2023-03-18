@@ -32,7 +32,7 @@ To run any autamated tests, run ```npm test```. This will
 
 - In the terminal, run: ```docker push <username>/nasa-project``` (image being pushed to docker hub)
 
-## 🚀 Creating EC2 instance on AWS and deploying conatiner 
+## 🚀 Creating EC2 instance on AWS and deploying container
 
 - Create an [EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) and configure it.
 
