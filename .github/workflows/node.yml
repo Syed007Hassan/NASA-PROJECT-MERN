@@ -32,6 +32,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           image: syed007hassan/nasa-project
+          tags: "syed007hassan/nasa-project:latest"
           push: true
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
