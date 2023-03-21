@@ -28,3 +28,11 @@ jobs:
       - run: npm install
       - run: npm run build --prefix client
       - run: npm test
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          image: syed007hassan/nasa-project
+          push: true
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
