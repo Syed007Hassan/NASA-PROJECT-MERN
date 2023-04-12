@@ -20,6 +20,7 @@ async function startServer() {
     console.log(`Server is running on port ${port}`);
   });
 }
+
 //creating a db connection
 const connectDb = async () => {
   await mongoose.connect(process.env.MONGOURL, {
@@ -35,7 +36,6 @@ const mongooseDisconnect = async () => {
 
 startServer();
 module.exports = {
-  app,
   connectDb,
   mongooseDisconnect,
 };
